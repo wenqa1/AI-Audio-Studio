@@ -12,10 +12,9 @@
 ## 🚀 快速启动
 1. **环境准备**：
    `pip install -r requirements_gpu.txt`
-   *注意：若需 GPU 加速，请手动安装 torch+cu118。*
 2. **放置依赖**：
    将 `ffmpeg.exe` 放入 `bin/ffmpeg/` 目录。
 3. **运行程序**：
    `python app_gpu.py`
 4. **访问页面**：
-   打开浏览器访问 `http://127.0.0.1:5000`
+   打开浏览器访问 `http://127.0.0.1:5001`

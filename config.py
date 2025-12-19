@@ -1,42 +1,56 @@
 import os
 from pathlib import Path
 
-# 获取项目根目录
+# 基础目录配置
 BASE_DIR = Path(__file__).resolve().parent
-
-# --- 自动创建必要文件夹 ---
 UPLOAD_FOLDER = BASE_DIR / "uploads"
 OUTPUT_FOLDER = BASE_DIR / "outputs"
 MODEL_FOLDER = BASE_DIR / "models"
 BIN_FOLDER = BASE_DIR / "bin" / "ffmpeg"
 
+# 自动创建必要文件夹
 for folder in [UPLOAD_FOLDER, OUTPUT_FOLDER, MODEL_FOLDER]:
     folder.mkdir(parents=True, exist_ok=True)
 
-# --- FFmpeg 路径设定 ---
-ffmpeg_exe = "ffmpeg.exe" if os.name == 'nt' else "ffmpeg"
-FFMPEG_PATH = str(BIN_FOLDER / ffmpeg_exe)
+# FFmpeg 可执行文件路径
+FFMPEG_PATH = str(BIN_FOLDER / ("ffmpeg.exe" if os.name == 'nt' else "ffmpeg"))
 
-# --- 场景模型定义 ---
+# --- 严格校准的模型 ID 列表 ---
 MODELS = {
-    "BS-RoFormer-Viper-2": {
-        "name": "🚀 全能王者 (Viper-2)",
-        "id": "BS-RoFormer-Viper-2.onnx",
-        "desc": "目前最强人声分离，适合绝大部分场景。"
+    "roformer": {
+        "name": "BS-Roformer-Viper-1297",
+        "tag": "最强人声",
+        "desc": "MDXC 架构 | 目前 SOTA 级人声分离",
+        "id": "model_bs_roformer_ep_317_sdr_12.9755.ckpt"
     },
-    "Demucs-HT-FT": {
-        "name": "🎸 乐队分轨 (Demucs)",
-        "id": "htdemucs_ft",
-        "desc": "分出人声、鼓、贝斯、其他，适合后期混音。"
+    "demucs": {
+        "name": "Demucs v4 FT",
+        "tag": "标准分轨",
+        "desc": "Demucs 架构 | 适合全乐队/多乐器提取",
+        "id": "htdemucs_ft.yaml"  # 修正：Demucs 在该库中需要 .yaml 后缀作为 ID
     },
-    "Inst-HQ-v3": {
-        "name": "🎹 高清伴奏 (Inst-HQ)",
-        "id": "UVR-MDX-NET-Inst_HQ_3.onnx",
-        "desc": "极致伴奏质量，适合 KTV 伴奏制作。"
+    "ktv": {
+        "name": "保留和声 (KARA 2)",
+        "tag": "KTV 模式",
+        "desc": "MDX 架构 | 提取伴奏并保留和声",
+        "id": "UVR_MDXNET_KARA_2.onnx"
     },
-    "KTV-Karaoke": {
-        "name": "🎤 KTV 模式 (保留和声)",
-        "id": "UVR_MDXNET_KARA_2.onnx",
-        "desc": "保留背景和声，只去除主唱。"
+    "inst": {
+        "name": "Inst HQ 3",
+        "tag": "纯净伴奏",
+        "desc": "MDX 架构 | 极致去除人声",
+        "id": "UVR-MDX-NET-Inst_HQ_3.onnx"
+    },
+    "dereverb": {
+        "name": "去混响 (DeReverb)",
+        "tag": "后期修复",
+        "desc": "VR 架构 | 消除房间回声/混响",
+        "id": "UVR-DeEcho-DeReverb.pth"
+    },
+    "denoise": {
+        "name": "AI 降噪 (DeNoise)",
+        "tag": "音质修复",
+        "desc": "VR 架构 | 消除底噪/电流杂音",
+        "id": "UVR-DeNoise.pth"
     }
 }
