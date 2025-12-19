@@ -1,0 +1,10 @@
+flask==3.0.3
+flask-cors==4.0.1
+onnxruntime==1.18.0
+torch==2.2.2
+torchaudio==2.2.2
+audio-separator[cpu]==0.25.1
+pydub==0.25.1
+librosa==0.10.1
+zipstream-new==1.1.8
+python-dotenv==1.0.1

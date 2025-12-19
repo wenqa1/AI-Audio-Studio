@@ -1,0 +1,21 @@
+# 忽略 Python 缓存和虚拟环境
+__pycache__/
+.venv/
+.idea/
+.vscode/
+
+# 忽略临时文件夹里的内容（保留文件夹，不传文件）
+uploads/*
+outputs/*
+models/*
+
+# 忽略体积巨大的二进制工具
+bin/
+*.exe
+*.onnx
+*.pth
+*.ckpt
+
+# 忽略日志和系统文件
+*.log
+.DS_Store

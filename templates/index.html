@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Audio Studio | 人声分离</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans">
+    <div class="max-w-4xl mx-auto py-12 px-6">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl font-bold tracking-tight">🎙️ AI Audio Studio</h1>
+            <p class="mt-4 text-gray-500">基于深度学习的高级人声与背景音乐分离工具</p>
+        </header>
+
+        <main class="bg-white rounded-3xl shadow-xl p-8 border border-gray-100">
+            <div id="drop-zone" class="border-2 border-dashed border-gray-200 rounded-2xl p-12 text-center hover:border-blue-400 transition-all cursor-pointer">
+                <span class="text-5xl">📁</span>
+                <p class="mt-4 text-gray-600">点击或拖拽音频文件到这里</p>
+                <input type="file" id="file-input" multiple class="hidden">
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">选择 AI 模型</label>
+                    <select id="model-select" class="w-full bg-gray-50 border-0 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500">
+                        </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">处理精度 (Overlap): <span id="overlap-val">0.6</span></label>
+                    <input type="range" id="overlap-range" min="0.1" max="0.9" step="0.1" value="0.6" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                </div>
+            </div>
+
+            <div id="file-list" class="mt-8 space-y-4">
+                </div>
+
+            <button id="start-btn" class="w-full mt-10 bg-black text-white py-4 rounded-2xl font-bold hover:bg-gray-800 transition-all shadow-lg active:scale-95">
+                开始批量分离处理
+            </button>
+        </main>
+    </div>
+    <script src="/static/js/main.js"></script>
+</body>
+</html>

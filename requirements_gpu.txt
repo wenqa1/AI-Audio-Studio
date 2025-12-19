@@ -1,0 +1,11 @@
+flask==3.0.3
+flask-cors==4.0.1
+onnxruntime-gpu==1.18.0
+# 下面这两行建议先用 pip install 手动安装官方源，见README
+torch==2.2.2+cu118
+torchaudio==2.2.2+cu118
+audio-separator[gpu]==0.25.1
+pydub==0.25.1
+librosa==0.10.1
+zipstream-new==1.1.8
+python-dotenv==1.0.1
