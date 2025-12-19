@@ -1,10 +1,24 @@
-flask==3.0.3
-flask-cors==4.0.1
-onnxruntime==1.18.0
+# --- 基础 Web 服务 ---
+Flask==3.0.3
+Flask-CORS==4.0.1
+Werkzeug==3.0.3
+
+# --- AI 分离核心引擎 (CPU 版) ---
+audio-separator==0.25.1
+
+# --- 音频处理与混音 (Mixer Studio) ---
+pydub==0.25.1
+
+# --- 深度学习后端 (CPU 优化版) ---
+--index-url https://download.pytorch.org/whl/cpu
 torch==2.2.2
 torchaudio==2.2.2
-audio-separator[cpu]==0.25.1
-pydub==0.25.1
-librosa==0.10.1
-zipstream-new==1.1.8
-python-dotenv==1.0.1
+torchvision==0.17.2
+
+# --- 推理加速库 (纯 CPU) ---
+onnxruntime==1.18.0
+
+# --- 辅助工具 ---
+numpy<2.0.0
+six==1.16.0
+requests==2.32.3

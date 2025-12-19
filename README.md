@@ -42,6 +42,10 @@
 ```bash
 pip install -r requirements_gpu.txt
 ```
+* **或cpu依赖**
+```bash
+pip install -r requirements_cpu.txt
+````
 ### 3.3 配置 FFmpeg
 * **混音功能高度依赖 FFmpeg 静态库。请确保：**
 
