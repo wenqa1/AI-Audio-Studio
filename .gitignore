@@ -1,21 +1,39 @@
-# 忽略 Python 缓存和虚拟环境
+# --- Python 缓存与环境 ---
 __pycache__/
-.venv/
+*.py[cod]
+*$py.class
+venv/
+.env
+.venv
+env/
+build/
+dist/
+*.spec
+
+# --- AI 项目专属忽略 ---
+# 忽略模型文件夹中的所有权重文件（保持文件夹结构，但不传大文件）
+models/*
+# 如果你希望保留模型文件夹的占位符，可以取消下面一行的注释
+# !models/.gitkeep
+
+# 忽略临时上传的文件
+uploads/*
+# 忽略处理后的结果文件
+outputs/*
+
+# --- 二进制与大文件 ---
+# 忽略 FFmpeg 可执行文件（发行版时手动放入，不建议传到 Git）
+bin/ffmpeg/*.exe
+bin/ffmpeg/*.dll
+
+# --- IDE 与系统垃圾 ---
 .idea/
 .vscode/
-
-# 忽略临时文件夹里的内容（保留文件夹，不传文件）
-uploads/*
-outputs/*
-models/*
-
-# 忽略体积巨大的二进制工具
-bin/
-*.exe
-*.onnx
-*.pth
-*.ckpt
-
-# 忽略日志和系统文件
-*.log
+*.swp
+*.bak
+Thumbs.db
 .DS_Store
+
+# --- 日志文件 ---
+*.log
+logs/
