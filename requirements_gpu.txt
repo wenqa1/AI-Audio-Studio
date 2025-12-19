@@ -1,11 +1,26 @@
-flask==3.0.3
-flask-cors==4.0.1
-onnxruntime-gpu==1.18.0
-# 下面这两行建议先用 pip install 手动安装官方源，见README
-torch==2.2.2+cu118
-torchaudio==2.2.2+cu118
+# --- 基础 Web 服务 ---
+Flask==3.0.3
+Flask-CORS==4.0.1
+Werkzeug==3.0.3
+
+# --- AI 分离核心引擎 ---
+# 包含 GPU 额外依赖
 audio-separator[gpu]==0.25.1
+
+# --- 音频处理与混音 (Mixer Studio) ---
 pydub==0.25.1
-librosa==0.10.1
-zipstream-new==1.1.8
-python-dotenv==1.0.1
+
+# --- 深度学习后端 (CUDA 11.8 优化版) ---
+# 注意：若环境不同，可能需要根据 PyTorch 官网调整 index-url
+--index-url https://download.pytorch.org/whl/cu118
+torch==2.2.2
+torchaudio==2.2.2
+torchvision==0.17.2
+
+# --- 推理加速库 ---
+onnxruntime-gpu==1.18.0
+
+# --- 辅助工具 ---
+numpy<2.0.0
+six==1.16.0
+requests==2.32.3
