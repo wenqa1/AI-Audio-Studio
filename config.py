@@ -9,7 +9,7 @@ MODEL_FOLDER = BASE_DIR / "models"
 BIN_FOLDER = BASE_DIR / "bin" / "ffmpeg"
 
 # 自动创建必要文件夹
-for folder in [UPLOAD_FOLDER, OUTPUT_FOLDER, MODEL_FOLDER]:
+for folder in [UPLOAD_FOLDER, OUTPUT_FOLDER, MODEL_FOLDER, BIN_FOLDER]:
     folder.mkdir(parents=True, exist_ok=True)
 
 # FFmpeg 可执行文件路径
